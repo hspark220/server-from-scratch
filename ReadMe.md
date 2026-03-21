@@ -11,3 +11,5 @@ What is required from a webserver?
 ## version-1
 version-1 is a simple echo server sending bytes between the server and the client applications,
 where the server simply repeats or echos what the client sends it...
+- The client application is made using the Socket class
+- The server application is made using the ServerSocket class
