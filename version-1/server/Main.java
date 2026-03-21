@@ -1,6 +1,7 @@
 import java.net.*;
 import java.io.*;
 import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,11 +19,17 @@ public class Main {
             while (true) {
                 // receive message from client
                 System.out.println("listening for message...");
+                // take in the length of the message first
                 receivedMessage = inputStream.read();
-                System.out.println("message receieved: " + receivedMessage);
+                byte[] messageBytes = new byte[receivedMessage];
+
+                // receive the rest of message and convert into string
+                receivedMessage = inputStream.read(messageBytes, 0, messageBytes.length);
+                String messageString = new String(messageBytes, StandardCharsets.UTF_8);
+                System.out.println("message receieved: " + messageString);
 
                 // if client sends quit message (-1) close server
-                if (receivedMessage == 0)
+                if (messageString.equals("quit"))
                     break;
             }
 
