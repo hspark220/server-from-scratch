@@ -15,7 +15,7 @@ public class Main {
 
             // define inputstream
             InputStream inputStream = socket.getInputStream();
-            // loop to receive inputs from user... (attempt to create a echo server first)
+            // loop to receive inputs from user...
             while (true) {
                 // receive message from client
                 System.out.println("listening for message...");
@@ -28,7 +28,7 @@ public class Main {
                 String messageString = new String(messageBytes, StandardCharsets.UTF_8);
                 System.out.println("message receieved: " + messageString);
 
-                // if client sends quit message (-1) close server
+                // if client sends "quit" message close server
                 if (messageString.equals("quit"))
                     break;
             }
