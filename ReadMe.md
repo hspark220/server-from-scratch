@@ -8,5 +8,6 @@ What is required from a webserver?
  - servers can vary from serving static files to serving simple messages 
  - web pages are served using html files...
 
-## day-1
- - create Main.java file
+## version-1
+version-1 is a simple echo server sending bytes between the server and the client applications,
+where the server simply repeats or echos what the client sends it...
