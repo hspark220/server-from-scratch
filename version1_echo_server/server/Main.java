@@ -9,6 +9,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int receivedMessage = 0;
         try {
+            System.out.println("Server started waiting for client...");
+            // initialize sockets for the server
             ServerSocket serverSocket = new ServerSocket(8080);
             Socket socket = serverSocket.accept();
             System.out.println("client connected: " + socket.toString());
