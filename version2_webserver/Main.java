@@ -2,7 +2,7 @@
 
 public class Main {
   public static void main(String[] args) {
-    Server server = new Server("this is the name of the server...");
+    Server server = new Server(8080);
     server.run();
 
   }

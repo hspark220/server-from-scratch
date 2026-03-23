@@ -1,16 +1,21 @@
-
+import java.net.*;
+import java.io.*;
 
 public class Server {
-
-  private string ipAddress;
   private int portNumber;
 
-  public Server(String name) {
-    this.name = name;
-
+  public Server(int portNumber) {
+    this.portNumber = portNumber;
   }
 
   public void run() {
-    System.out.println(name);
+    try {
+      ServerSocket serverSocket = new ServerSocket(this.portNumber);
+      Socket socket = serverSocket.accept();
+      System.out.println("client connected");
+    }
+    catch (IOException ex) {
+      System.out.println(ex);
+    }
   }
 }
