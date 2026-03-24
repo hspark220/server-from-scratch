@@ -1,5 +1,6 @@
 import java.net.*;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class Server {
   private int portNumber;
@@ -10,11 +11,26 @@ public class Server {
 
   public void run() {
     try {
-      ServerSocket serverSocket = new ServerSocket(this.portNumber);
+      // initial setup for server
+      ServerSocket serverSocket = new ServerSocket(8080);
       Socket socket = serverSocket.accept();
-      System.out.println("client connected");
-    }
-    catch (IOException ex) {
+      InputStream inputStream = socket.getInputStream();
+
+      System.out.println(socket.toString() + " is connected");
+
+      byte[] inputBytes = new byte[2464];
+      String inputString;
+
+      while (!socket.isClosed()) {
+        inputStream.read(inputBytes);
+        inputString = new String(inputBytes, StandardCharsets.UTF_8);
+        System.out.println(inputString);
+
+      }
+
+      socket.close();
+
+    } catch (IOException ex) {
       System.out.println(ex);
     }
   }
