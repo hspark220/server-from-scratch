@@ -12,11 +12,9 @@ public class Server {
   public void run() {
     try {
       // initial setup for server
-      ServerSocket serverSocket = new ServerSocket(8080);
+      ServerSocket serverSocket = new ServerSocket(portNumber);
       Socket socket = serverSocket.accept();
       InputStream inputStream = socket.getInputStream();
-
-      System.out.println(socket.toString() + " is connected");
 
       byte[] inputBytes = new byte[2464];
       String inputString;
@@ -28,7 +26,7 @@ public class Server {
 
       }
 
-      socket.close();
+      serverSocket.close();
 
     } catch (IOException ex) {
       System.out.println(ex);
