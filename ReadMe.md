@@ -13,3 +13,7 @@ version-1 is a simple echo server sending bytes between the server and the clien
 where the server simply repeats or echos what the client sends it...
 - The client application is made using the Socket class
 - The server application is made using the ServerSocket class
+
+## version-2
+version-2 is a webserver that returns an static webpage to teh client...
+- Work on creating a class that parses the HTTP message and sends back a response
